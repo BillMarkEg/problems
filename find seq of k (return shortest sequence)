@@ -1,0 +1,26 @@
+l=[1,2,2,3,2,2,1]
+
+result = []
+key = 5
+dict={}
+best_match = 100
+
+for index,e in enumerate(l):       
+    
+    for i in list(dict):
+        new = (i+e)
+        if( new <= key ):
+            dict[i+e] = dict[i] + 1
+            del dict[i]
+        if(new>key):
+            del dict[i]
+        if(new==key):
+            if(dict[5]<best_match):
+                best_match = dict[5]
+                result = [index +1  - dict[5] ,index ]             
+                del dict[key]
+    
+    if(e<key):
+        dict[e]=1    
+    
+result
